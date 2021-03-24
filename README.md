@@ -55,8 +55,8 @@ https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git
        import * as fs from 'fs';
        
        const main = async () => {
-       try {
-       const testFileName = 'test-file.txt';
+            try {
+               const testFileName = 'test-file.txt';
        
                const fileStream = fs.createReadStream(testFileName);
                fileStream.on('error', (err) => { console.log('File Error', err); });
@@ -79,9 +79,9 @@ https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git
        
                console.log(downloadResult.Body.toString());
        
-           } catch (e) {
+            } catch (e) {
                console.log(e);
-           }
+            }
        }
        
        main();
