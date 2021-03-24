@@ -1,0 +1,35 @@
+{
+  "name": "encryption-layer-aws-s3-ts",
+  "version": "1.0.0",
+  "description": "Typescript example of client-side encryption on AWS S3 using DataStrata.io Encryption Layers",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git"
+  },
+  "keywords": [
+    "encryption",
+    "client-side",
+    "aws",
+    "s3",
+    "encrypt",
+    "decrypt"
+  ],
+  "author": "DataStrata.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataStrata-io/encryption-layer-aws-s3-ts/issues"
+  },
+  "homepage": "https://github.com/DataStrata-io/encryption-layer-aws-s3-ts#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@datastrata/aws-s3-encryption-layer": "^1.0.6"
+  }
+}
