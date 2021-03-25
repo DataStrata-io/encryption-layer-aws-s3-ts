@@ -1,4 +1,4 @@
-# encryption-layer-aws-s3-ts
+# Client Side AWS S3 Encryption Layer from DataStrata.io: Typescript
 Typescript example of client-side encryption on AWS S3 using DataStrata.io Encryption Layers
 
 ## Prerequisites
@@ -21,7 +21,7 @@ https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git
 
 4. Replace `YOUR-REST-CREDENTIAL-CLIENT-ID` and `YOUR-REST-CREDENTIAL-SECRET` with the values you configured at [DataStrata.io: Getting Started with Encryption Layers](https://datastrata.io/encryption-layer-overview-and-getting-started/).
 
-5. Run `node index.js`
+5. Run `ts-node index.ts`
 
 ### From scratch
 
@@ -37,7 +37,7 @@ https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git
 
 `npm install typescript --save-dev`
 
-4. Add Typescript types:
+4. Add Node types:
 
 `npm install @types/node --save-dev`
 
@@ -90,7 +90,7 @@ https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git
 8. Replace `YOUR-REST-CREDENTIAL-CLIENT-ID` and `YOUR-REST-CREDENTIAL-SECRET` with the values you configured at [DataStrata.io: Getting Started with Encryption Layers](https://datastrata.io/encryption-layer-overview-and-getting-started/).
 
 
-9. Run the file by typing: `ts-node index.ts`. You should see the contents of the uploaded file. If you used the `test-file.txt` in the repository, you will see:
+9. Run the file by typing: `npx ts-node index.ts` (note that in some IDEs, just `ts-node index.ts` sufficient). You should see the contents of the uploaded file. If you used the `test-file.txt` in the repository, you will see:
 
 > Welcome to DataStrata.io Encryption Layers, client-side encryption for your data.
 
