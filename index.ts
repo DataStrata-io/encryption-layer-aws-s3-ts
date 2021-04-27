@@ -3,6 +3,8 @@ import * as fs from 'fs';
 
 const main = async () => {
     try {
+        const testBucketName = 'datastrata-tutorial-bucket';
+        const testKey = 'test-file-encrypted-ts.txt';
         const testFileName = 'test-file.txt';
 
         const fileStream = fs.createReadStream(testFileName);
@@ -14,18 +16,27 @@ const main = async () => {
             'us-east-1');
 
         const uploadResult = await encryptionLayer.putObject({
-            Bucket: 'datastrata-tutorial-bucket',
-            Key: 'test-file-encrypted-ts.txt',
+            Bucket: testBucketName,
+            Key: testKey,
             Body: fileStream
         });
 
+        console.log('Object uploaded');
+
         const downloadResult = await encryptionLayer.getObject({
-            Bucket: 'datastrata-tutorial-bucket',
-            Key: 'test-file-encrypted-ts.txt'
+            Bucket: testBucketName,
+            Key: testKey
         });
 
+        console.log('Object downloaded');
         console.log(downloadResult.Body.toString());
 
+        const deleteResult = await encryptionLayer.deleteObject(    {
+            Bucket: testBucketName,
+            Key: testKey
+        });
+
+        console.log('Object deleted');
     } catch (e) {
         console.log(e);
     }
