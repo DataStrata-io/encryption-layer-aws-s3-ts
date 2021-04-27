@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 const main = async () => {
     try {
-        const testBucketName = 'datastrata-tutorial-bucket';
+        const testBucketName = 'YOUR-BUCKET-NAME';
         const testKey = 'test-file-encrypted-ts.txt';
         const testFileName = 'test-file.txt';
 
