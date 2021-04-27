@@ -51,40 +51,50 @@ https://github.com/DataStrata-io/encryption-layer-aws-s3-ts.git
 
 7. Create an index.ts file with the following code:
 
-       import { EncryptionLayer } from '@datastrata/aws-s3-encryption-layer';
-       import * as fs from 'fs';
-       
-       const main = async () => {
-            try {
-               const testFileName = 'test-file.txt';
-       
-               const fileStream = fs.createReadStream(testFileName);
-               fileStream.on('error', (err) => { console.log('File Error', err); });
-       
-               const encryptionLayer = new EncryptionLayer(
-                   '3untvj0h977hfid0fs24hhn7eb',
-                   '2donmrkpihepub0shf56vf110s1n0l60pjfpi100mc5rcbubv0q',
-                   'us-east-1');
-       
-               const uploadResult = await encryptionLayer.putObject({
-                   Bucket: 'datastrata-tutorial-bucket',
-                   Key: 'test-file-encrypted-ts.txt',
-                   Body: fileStream
-               });
-       
-               const downloadResult = await encryptionLayer.getObject({
-                   Bucket: 'datastrata-tutorial-bucket',
-                   Key: 'test-file-encrypted-ts.txt'
-               });
-       
-               console.log(downloadResult.Body.toString());
-       
-            } catch (e) {
-               console.log(e);
-            }
-       }
-       
-       main();
+        import { EncryptionLayer } from '@datastrata/aws-s3-encryption-layer';
+        import * as fs from 'fs';
+         
+        const main = async () => {
+        try {
+          const testBucketName = 'YOUR-BUCKET-NAME';
+          const testKey = 'test-file-encrypted-ts.txt';
+          const testFileName = 'test-file.txt';
+
+          const fileStream = fs.createReadStream(testFileName);
+          fileStream.on('error', (err) => { console.log('File Error', err); });
+
+          const encryptionLayer = new EncryptionLayer(
+            'YOUR-REST-CREDENTIAL-CLIENT-ID',
+            'YOUR-REST-CREDENTIAL-SECRET',
+            'us-east-1');
+
+          const uploadResult = await encryptionLayer.putObject({
+            Bucket: testBucketName,
+            Key: testKey,
+            Body: fileStream
+          });
+
+          console.log('Object uploaded');
+
+          const downloadResult = await encryptionLayer.getObject({
+            Bucket: testBucketName,
+            Key: testKey
+          });
+
+          console.log('Object downloaded');
+          console.log(downloadResult.Body.toString());
+
+          const deleteResult = await encryptionLayer.deleteObject(    {
+            Bucket: testBucketName,
+            Key: testKey
+          });
+
+         console.log('Object deleted');
+        } catch (e) {
+          console.log(e);
+        }
+
+        main();
 
 
 8. Replace `YOUR-REST-CREDENTIAL-CLIENT-ID` and `YOUR-REST-CREDENTIAL-SECRET` with the values you configured at [DataStrata.io: Getting Started with Encryption Layers](https://datastrata.io/encryption-layer-overview-and-getting-started/).
